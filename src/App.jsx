@@ -43,9 +43,12 @@ export default function Navbar() {
 
   const handleSignin = (e) => {
     e.preventDefault();
+    if (auth){
+        return
+    }
     const storedUsers = JSON.parse(localStorage.getItem("users"))||[];
     const user = storedUsers.find((u) => u.Email === userEmail.current.value && u.Password === userPass.current.value);
-
+    
     if (user) {
       alert("Login successful!"); 
       setAuth(!auth);
@@ -58,7 +61,10 @@ export default function Navbar() {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+    if (auth){
+        return
+    }
+    
     if (userPass.current.value !== confirmPass.current.value) {
       alert("Passwords do not match!");
       return;
