@@ -48,27 +48,22 @@ export default function Navbar() {
 
     if (user) {
       alert("Login successful!"); 
+      setAuth(!auth);
     } else {
       alert("No user was found!");
     }
     userEmail.current.value = "";
     userPass.current.value = "";
-    setAuth(!auth);
   }
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    JSON.parse(localStorage.getItem("users")).forEach(obj => {
-      if (obj.email === userEmail){
-        alert("Email already exists");
-        return
-      }
-    })
   
     if (userPass.current.value !== confirmPass.current.value) {
       alert("Passwords do not match!");
       return;
+    } else{
+      setAuth(!auth);
     }
     
     const userData = {
@@ -76,7 +71,6 @@ export default function Navbar() {
       email: userEmail.current.value,
       password: userPass.current.value,
     };
-    setAuth(!auth);
 
   dispatchInfo({ type: "ADD", payload: userData });
 
