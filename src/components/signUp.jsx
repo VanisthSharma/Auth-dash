@@ -46,11 +46,9 @@ export default function SignUp() {
               onClick={handleSubmit}
                         > Sign Up
             </button>
-            <button
-              className="cursor-pointer transition-all ease-in-out duration-300 w-5/11 place-self-end p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-            > 
-             <Link to="/"> Go to Dashboard </Link>
-            </button>
+            
+             <Link className="cursor-pointer transition-all ease-in-out duration-300 w-5/11 place-self-end p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+             to="/"> Go to Dashboard </Link>
         </form>
       </div>
     </div>
